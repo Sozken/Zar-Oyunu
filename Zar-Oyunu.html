@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zar Oyunu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .dice {
+            font-size: 100px;
+            margin: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Zar Oyunu</h1>
+    <div class="dice" id="dice">🎲</div>
+    <button onclick="rollDice()">Zarı At</button>
+
+    <script>
+        let previousRoll = 0;
+
+        function rollDice() {
+            let newRoll;
+            do {
+                newRoll = Math.floor(Math.random() * 6) + 1;
+            } while (newRoll === previousRoll);
+
+            previousRoll = newRoll;
+
+            const diceFaces = ["", "⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+            document.getElementById("dice").innerHTML = diceFaces[newRoll];
+        }
+    </script>
+
+</body>
+</html>
